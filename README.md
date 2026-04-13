@@ -43,7 +43,7 @@ This repository was created to:
 This reference database supports the following research question:
 
 >Which LLMs offer the best cost-effectiveness ratio
-when identifying record series in native electronic docu-
+when identifying record series in native electronic docu
 ments within the archival science domain?
 ---
 
