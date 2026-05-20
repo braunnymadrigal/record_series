@@ -1,0 +1,5 @@
+LLM_LAB,LLM_NAME,LLM_TYPE
+AliBaba,Qwen/Qwen3.5-2B,AutoModelForImageTextToText
+AliBaba,Qwen/Qwen1.5-0.5B,AutoModelForCausalLM
+Google,google/gemma-2b-it,AutoModelForCausalLM
+Google,google/gemma-4-E2B-it,AutoModelForCausalLM

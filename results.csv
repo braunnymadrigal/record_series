@@ -1,0 +1,155 @@
+DATASET,DOCUMENT,LLM_NAME,RESPONSE,TIME
+jurídico,datasets\jurídico\Dictamen OJ-15-2026.pdf,Qwen/Qwen3.5-2B,"Consentimiento informado
+",3.6936745643615723
+jurídico,datasets\jurídico\Dictamen OJ-518-2021.pdf,Qwen/Qwen3.5-2B,"Actas
+",1.3750922679901123
+jurídico,datasets\jurídico\Dictamen OJ-586-2023.pdf,Qwen/Qwen3.5-2B,"Votación-abstención
+",2.0352425575256348
+museo,datasets\museo\Justificación de asistencia Sofia Irola 16-07.pdf,Qwen/Qwen3.5-2B,"Expedientes de trámites laborales
+",1.7492456436157227
+museo,datasets\museo\Solicitud vacaciones Sofia Irola 26-07.pdf,Qwen/Qwen3.5-2B,"Expedientes de trámites laborales
+",1.532599925994873
+jurídico,datasets\jurídico\Dictamen OJ-15-2026.pdf,Qwen/Qwen1.5-0.5B,"**Dictamen OJ-15-2026** Página 1 
+
+**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [153 x 63] intentionally omitted <==**
+
+**Dictamen OJ-15-2026** Página 2 
+
+**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [153 x 63] intentionally omitted <==**
+
+**Dictamen OJ-15-2026** Página 3 
+
+**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [153 x 63] intentionally omitted <==**
+
+**Dictamen OJ-15-2026** Página 4 
+
+**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [153 x 63] intentionally omitted <==**
+
+**Dictamen OJ-15-2026** Página 5 
+
+**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [153 x",7.532019376754761
+jurídico,datasets\jurídico\Dictamen OJ-518-2021.pdf,Qwen/Qwen1.5-0.5B,"Por favor, realice la siguiente tarea acta como un archivista experto.
+
+Categorice el documento en una categoría perteneciente a las series documentales. 
+Dé como respuesta una única serie documental dentro de la lista de series documentales disponibles. 
+No produzca comentarios adicionales.
+
+La lista de series documentales disponibles es: ['Autodeterminación informativa', 'Consentimiento informado', 'Proyectos de ley', 'Actas', 'Grabación de sesiones', 'Miembros-ausencias', 'Votación-abstención', 'Dedicación exclusiva', 'Estabilidad impropia', 'Incapacidades', 'Lactancia', 'Permiso con goce de salario-estudio'].
+
+El documento es:
+
+
+ **==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [155 x 63] intentionally omitted <==**
+
+## **Dictamen OJ-518-2021** 
+
+Dr. Francisco Rodríguez Cascante Director Sede de Occidente 
+
+Estimado señor: 
+
+Doy respuesta a su oficio SO-D-835-2021, mediante el cual",7.469566583633423
+jurídico,datasets\jurídico\Dictamen OJ-586-2023.pdf,Qwen/Qwen1.5-0.5B,"**==> picture [143 x 63] intentionally omitted <==**
+
+**==> picture [157 x 64] intentionally omitted <==**
+
+**==> picture [160 x 64] intentionally omitted <==**
+
+**==> picture [163 x 64] intentionally omitted <==**
+
+**==> picture [165 x 64] intentionally omitted <==**
+
+**==> picture [167 x 64] intentionally omitted <==**
+
+**==> picture [170 x 64] intentionally omitted <==**
+
+**==> picture [172 x 64] intentionally omitted <==**
+
+**==> picture [174 x 64] intentionally omitted <==**
+
+**==> picture [176 x 64] intentionally omitted <==**
+
+**==> picture [178 x 64] intentionally omitted <==**
+
+**==> picture [180 x 64] intentionally omitted <==**
+
+**==> picture [182 x 64] intentionally omitted <==**
+
+**==> picture [184 x 64] intentionally omitted <==**
+
+**==> picture [186 x 64] intentionally omitted <==**
+
+**",7.567106485366821
+museo,datasets\museo\Justificación de asistencia Sofia Irola 16-07.pdf,Qwen/Qwen1.5-0.5B,"Por favor, realice la siguiente tarea actuar como un archivista experto.
+
+Categorice el documento en una categoría perteneciente a las series documentales. 
+Dé como respuesta una única serie documental dentro de la lista de series documentales disponibles. 
+No produzca comentarios adicionales.
+
+La lista de series documentales disponibles es: ['Correspondencia ', 'Circulares ', 'Memorandos', 'Informes', 'Minutas de reuniones', 'Controles', 'Solicitudes administrativas', 'Expedientes de proyectos y programas institucionales', 'Expedientes de trámites laborales', 'Expedientes de transferencias de documentos ', 'Instrumentos técnicos archivísticos', 'Expedientes sobre voluntariado (pasantías y prácticas estudiantiles)', 'Expedientes de tablas de plazos'].
+
+El documento es:
+
+
+ **==> picture [454 x 54] intentionally omitted <==**
+
+**==> picture [503 x 298] intentionally omitted <==**
+
+**----- Start of picture text -----**<br>
+ SOLICITUD DE JUSTIFICACIÓN  Nº CODIGO DÍA MES           AÑ",7.512983322143555
+museo,datasets\museo\Solicitud vacaciones Sofia Irola 26-07.pdf,Qwen/Qwen1.5-0.5B,"Por favor, realice la siguiente tarea actuar como un archivista experto.
+
+Categorice el documento en una categoría perteneciente a las series documentales. 
+Dé como respuesta una única serie documental dentro de la lista de series documentales disponibles. 
+No produzca comentarios adicionales.
+
+La lista de series documentales disponibles es: ['Correspondencia ', 'Circulares ', 'Memorandos', 'Informes', 'Minutas de reuniones', 'Controles', 'Solicitudes administrativas', 'Expedientes de proyectos y programas institucionales', 'Expedientes de trámites laborales', 'Expedientes de transferencias de documentos ', 'Instrumentos técnicos archivísticos', 'Expedientes sobre voluntariado (pasantías y prácticas estudiantiles)', 'Expedientes de tablas de plazos'].
+
+El documento es:
+
+
+ **==> picture [477 x 274] intentionally omitted <==**
+
+**----- Start of picture text -----**<br>
+SOLICITUD DE:<br>Licencia Cambio de horario<br>X Vacaciones Compensación de tiempo laborado<br>SERVIDOR: Sofia Irol",7.520146369934082
+jurídico,datasets\jurídico\Dictamen OJ-15-2026.pdf,google/gemma-2b-it,"**Dictamen OJ-15-2026**
+
+**La Asesoría ha determinado que el siguiente tema pertenece a las series documentales:**
+
+**Votación de Acta**
+
+**El tema se refiere al proceso de votación para la aprobación del acta de la sesión anterior.**
+
+**La Asesoría indica lo siguiente:**
+
+1. El voto es válido para quienes fueron miembros del órgano colegiado en la sesión.
+2. El voto es válido para quienes no fueron miembros del órgano colegiado en la sesión, si abstenerse de participar en la sesión.
+3. El voto no válido no afecta la aprobación del acta.",5.193801641464233
+jurídico,datasets\jurídico\Dictamen OJ-518-2021.pdf,google/gemma-2b-it,"La categoría a la que pertenece el documento es **""Documentos legales""**.
+
+El documento es un dictamen que determina la suspensión de la prestación de servicios por incapacidad médica.",1.3229882717132568
+jurídico,datasets\jurídico\Dictamen OJ-586-2023.pdf,google/gemma-2b-it,"La categoría a la que pertenece el documento es **""Eventos y actividades académicas""**.
+
+El documento describe una situación específica que ocurre con frecuencia en las asambleas universitarias, y proporciona orientación sobre cómo debe ser manejada la asistencia de los miembros de la Asamblea a las mismas.",2.0558204650878906
+museo,datasets\museo\Justificación de asistencia Sofia Irola 16-07.pdf,google/gemma-2b-it,"La categoría a la que pertenece el documento es **""Informes""**.
+
+El documento es un informe sobre la solicitud de justificación por ausencia de marca gira en el puesto de funcionario Sofia Irola Rojas.",1.42122220993042
+museo,datasets\museo\Solicitud vacaciones Sofia Irola 26-07.pdf,google/gemma-2b-it,"La categoría a la que pertenece el documento es **""Informes""**.
+
+El documento es un informe sobre la solicitud de licencia de cambio de horario.",1.0373356342315674
+jurídico,datasets\jurídico\Dictamen OJ-15-2026.pdf,google/gemma-4-E2B-it,,124.43208003044128
+jurídico,datasets\jurídico\Dictamen OJ-518-2021.pdf,google/gemma-4-E2B-it,Incapacidades,0.9355032444000244
+jurídico,datasets\jurídico\Dictamen OJ-586-2023.pdf,google/gemma-4-E2B-it,Actas,0.8655600547790527
+museo,datasets\museo\Justificación de asistencia Sofia Irola 16-07.pdf,google/gemma-4-E2B-it,                               Solicitudes administrativas,3.0717954635620117
+museo,datasets\museo\Solicitud vacaciones Sofia Irola 26-07.pdf,google/gemma-4-E2B-it,Solicitudes administrativas,2.6582467555999756
