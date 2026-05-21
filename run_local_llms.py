@@ -4,42 +4,46 @@ import torch
 import pandas as pd
 import gc
 from pathlib import Path
-from transformers import AutoProcessor, AutoModelForCausalLM, AutoModelForImageTextToText
+from transformers import AutoProcessor, AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
 
-# Plattform in which the LLMs are being run on
+# Constants
 DEVICE = "cuda"
+MAX_NEW_TOKENS = 64
 
 # DATAFRAMES
 LLMS_DF = pd.read_csv("llms.csv", encoding="utf-8")
 RECORDS_SERIES_DF = pd.read_csv("records_series.csv", encoding="utf-8")
 results_df = pd.read_csv("results.csv", encoding="utf-8")
 
-# LLMs processor and model
-processor = None
+# LLMs engine and model
+engine = None
 model = None
 
 # LLMs prompt
 prompt = ""
 
 # Methods
-def load_processor(llm_name):
-    global processor
-    processor = AutoProcessor.from_pretrained(llm_name)
-    
+def load_engine(llm_name, llm_engine):
+    global engine
+    if llm_engine == "processor":
+        engine = AutoProcessor.from_pretrained(llm_name)
+    elif llm_engine == "tokenizer":
+        engine = AutoTokenizer.from_pretrained(llm_name)
+
 def load_model(llm_name, llm_type):
     global model
     if llm_type == "AutoModelForCausalLM":
         model = AutoModelForCausalLM.from_pretrained(llm_name, dtype=torch.float16).to(DEVICE)
-    else:
+    elif llm_type == "AutoModelForImageTextToText":
         model = AutoModelForImageTextToText.from_pretrained(llm_name, dtype=torch.float16).to(DEVICE)
 
 def run_spec_llm_with_spec_prompt(llm_name, current_prompt):
     global prompt
     prompt = current_prompt
     
-    start_time = time.time()
-    
-    inputs = processor.apply_chat_template(
+    start_time = time.perf_counter()
+
+    inputs = engine.apply_chat_template(
         prompt,
         add_generation_prompt=True,
         tokenize=True,
@@ -47,18 +51,22 @@ def run_spec_llm_with_spec_prompt(llm_name, current_prompt):
         return_tensors="pt",
     ).to(DEVICE)
     
+
+
+    
     with torch.inference_mode():
         outputs = model.generate(
             **inputs,
-            max_new_tokens=256
+            max_new_tokens=MAX_NEW_TOKENS
         )
 
-    response = processor.decode(
+    response = engine.decode(
         outputs[0][inputs["input_ids"].shape[-1]:],
-        skip_special_tokens=True
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
     )
-    
-    end_time = time.time()
+
+    end_time = time.perf_counter()
     elapsed_time = (end_time - start_time)
 
     del inputs
@@ -85,16 +93,18 @@ def create_prompt(categories, file):
 
 def main():
     global model
-    global processor
+    global engine
 
     llms_names = LLMS_DF["LLM_NAME"].tolist()
     llms_types = LLMS_DF["LLM_TYPE"].tolist()
+    llms_engines = LLMS_DF["LLM_ENGINE"].tolist()
     
     for i in range(len(llms_names)):
         llm_name = llms_names[i]
         llm_type = llms_types[i]
+        llm_engine = llms_engines[i]
         
-        load_processor(llm_name)
+        load_engine(llm_name, llm_engine)
         load_model(llm_name, llm_type)
         
         datasets = RECORDS_SERIES_DF["DATASET"].tolist()
@@ -113,6 +123,11 @@ def main():
                 document = pymupdf4llm.to_markdown(str(file_path))
                 current_prompt = create_prompt(categories, document)
                 response, elapsed_time = run_spec_llm_with_spec_prompt(llm_name, current_prompt)
+                response = response.lower()
+                
+                if response not in categories:
+                    response = ""
+                
                 results_df.loc[len(results_df)] = [dataset, file_path, llm_name, response, elapsed_time]
                 
                 print()
@@ -123,10 +138,10 @@ def main():
             model.cpu()
 
         del model
-        del processor
+        del engine
 
         model = None
-        processor = None
+        engine = None
 
         gc.collect()
 

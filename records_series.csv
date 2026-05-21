@@ -1,26 +1,20 @@
 DATASET,CATEGORY
-jurídico,Autodeterminación informativa
-jurídico,Consentimiento informado
-jurídico,Proyectos de ley
-jurídico,Actas
-jurídico,Grabación de sesiones
-jurídico,Miembros-ausencias
-jurídico,Votación-abstención
-jurídico,Dedicación exclusiva
-jurídico,Estabilidad impropia
-jurídico,Incapacidades
-jurídico,Lactancia
-jurídico,Permiso con goce de salario-estudio
-museo,Correspondencia 
-museo,Circulares 
-museo,Memorandos
-museo,Informes
-museo,Minutas de reuniones
-museo,Controles
-museo,Solicitudes administrativas
-museo,Expedientes de proyectos y programas institucionales
-museo,Expedientes de trámites laborales
-museo,Expedientes de transferencias de documentos 
-museo,Instrumentos técnicos archivísticos
-museo,Expedientes sobre voluntariado (pasantías y prácticas estudiantiles)
-museo,Expedientes de tablas de plazos
+jurídico,consultoría
+jurídico,gestión judicial
+jurídico,gestión notarial y registral
+museo,correspondencia
+museo,circulares
+museo,memorandos
+museo,informes de labores
+museo,informes técnicos producidos
+museo,informes de inspección
+museo,informes del índice de desarrollo archivístico
+museo,minutas de reuniones
+museo,controles de préstamo de documentos
+museo,solicitudes administrativas
+museo,expedientes de proyectos y programas institucionales
+museo,expedientes de trámites laborales
+museo,expedientes de transferencias de documentos 
+museo,instrumentos técnicos archivísticos
+museo,expedientes sobre voluntariado
+museo,expedientes de tablas de plazos
