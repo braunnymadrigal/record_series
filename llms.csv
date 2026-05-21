@@ -1,7 +1,7 @@
 LLM_LAB,LLM_NAME,LLM_TYPE,LLM_ENGINE
-AliBaba,Qwen/Qwen3.5-2B,AutoModelForImageTextToText,processor
-AliBaba,Qwen/Qwen1.5-0.5B,AutoModelForCausalLM,tokenizer
-Meta,meta-llama/Llama-3.2-3B-Instruct,AutoModelForCausalLM,tokenizer
-Meta,meta-llama/Llama-3.2-1B-Instruct,AutoModelForCausalLM,tokenizer
 Google,google/gemma-4-E2B-it,AutoModelForImageTextToText,processor
 Google,google/gemma-2b-it,AutoModelForCausalLM,tokenizer
+AliBaba,Qwen/Qwen3.5-2B,AutoModelForImageTextToText,processor
+AliBaba,Qwen/Qwen1.5-0.5B,AutoModelForCausalLM,tokenizer
+HuggingFace,HuggingFaceTB/SmolLM2-1.7B-Instruct,AutoModelForCausalLM,tokenizer
+HuggingFace,HuggingFaceTB/SmolLM-135M-Instruct,AutoModelForCausalLM,tokenizer
