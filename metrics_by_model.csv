@@ -1,0 +1,13 @@
+﻿model_name,provider,model_group,model_access_type,dataset_size,accuracy,precision,recall,f1_score,total_time_seconds,average_time_seconds,average_input_tokens,average_output_tokens,average_total_tokens,total_input_tokens,total_output_tokens,total_tokens,input_token_price,output_token_price,gpu_price,ram_price,hardware_total_price,average_cost,total_cost,efficiency_f1_over_time,cer,cer_correctness_oriented,icer
+gpt_5_5_high,openai,main,api,252,0.7619,0.8205,0.7619,0.768,1302.3642,5.1681,1383.5,198.96,1582.46,348642,50138,398780,,,,,,,,0.00058968,,,
+claude_opus_4_7_thinking,anthropic,main,api,252,0.5992,0.7909,0.5992,0.6237,463.5484,1.8395,2378.15,11.8,2389.95,599294,2973,602267,,,,,,,,0.00134548,,,
+claude_haiku_4_5,anthropic,lightweight,api,252,0.5437,0.6796,0.5437,0.5473,444.8122,1.7651,1754.75,7.75,1762.5,442197,1954,444151,,,,,,,,0.0012305,,,
+gpt_5_nano_high,openai,lightweight,api,252,0.5317,0.7427,0.5317,0.5222,3133.6274,12.435,1383.5,1608.57,2992.07,348642,405359,754001,,,,,,,,0.00016665,,,
+gemini_3_1_pro_preview,google,main,api,252,0.5556,0.8203,0.5556,0.5137,2530.8556,10.0431,1509.42,1019.94,2529.36,380375,257024,637399,,,,,,,,0.00020297,,,
+gemini_2_5_flash_lite,google,lightweight,api,252,0.4524,0.7568,0.4524,0.4191,218.5496,0.8673,1509.42,4.0,1513.42,380375,1007,381382,,,,,,,,0.00191784,,,
+google/gemma-4-E2B-it,local,,local,252,0.3492,0.734,0.3492,0.3153,767.6604,3.0463,0.0,0.0,0.0,0,0,0,,,,,,,,0.00041073,,,
+Qwen/Qwen3.5-2B,local,,local,252,0.1468,0.0983,0.1468,0.0764,305.6461,1.2129,0.0,0.0,0.0,0,0,0,,,,,,,,0.00024988,,,
+HuggingFaceTB/SmolLM2-1.7B-Instruct,local,,local,252,0.0437,0.1943,0.0675,0.0554,390.6112,1.55,0.0,0.0,0.0,0,0,0,,,,,,,,0.00014187,,,
+Qwen/Qwen1.5-0.5B,local,,local,252,0.0,0.0858,0.0437,0.0361,587.6109,2.3318,0.0,0.0,0.0,0,0,0,,,,,,,,6.138e-05,,,
+google/gemma-2b-it,local,,local,252,0.0,0.1222,0.0437,0.0359,535.3497,2.1244,0.0,0.0,0.0,0,0,0,,,,,,,,6.713e-05,,,
+HuggingFaceTB/SmolLM-135M-Instruct,local,,local,252,0.0,0.0,0.0,0.0,970.4697,3.8511,0.0,0.0,0.0,0,0,0,,,,,,,,0.0,,,
