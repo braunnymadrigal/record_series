@@ -1,9 +1,9 @@
 DATASET,CATEGORY
-jurídico,consultoría x
+jurídico,consultoría
 jurídico,gestión judicial
 jurídico,gestión notarial y registral
-museo,correspondencia x
-museo,circulares x
+museo,correspondencia
+museo,circulares
 museo,memorandos
 museo,informes de labores
 museo,informes técnicos producidos
@@ -13,8 +13,16 @@ museo,minutas de reuniones
 museo,controles de préstamo de documentos
 museo,solicitudes administrativas
 museo,expedientes de proyectos y programas institucionales
-museo,expedientes de trámites laborales x
-museo,expedientes de transferencias de documentos  x
+museo,expedientes de trámites laborales
+museo,expedientes de transferencias de documentos
 museo,instrumentos técnicos archivísticos
-museo,expedientes sobre voluntariado x
+museo,expedientes sobre voluntariado
 museo,expedientes de tablas de plazos
+archivo,circulares
+archivo,informes técnicos
+archivo,correspondencia
+archivo,expedientes de transferencias de documentos
+archivo,actas de eliminación de documentos
+archivo,informes de labores
+archivo,informes de participación en comisión interinstitucional de encargados de archivos públicos
+archivo,minutas de reuniones

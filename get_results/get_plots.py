@@ -108,7 +108,7 @@ plt.grid(
 )
 
 ax.set_xlabel(
-    "Porcentaje",
+    "Porcentaje promedio",
     labelpad=20
 )
 
@@ -211,7 +211,7 @@ ax2.xaxis.set_major_formatter(
 )
 
 ax1.set_xlabel(
-    "F1 (porcentaje)",
+    "F1 promedio (porcentaje)",
     color=RED_COLOR,
     labelpad=20
 )
@@ -334,7 +334,7 @@ ax2.xaxis.set_major_formatter(
 )
 
 ax1.set_xlabel(
-    "F1 (porcentaje)",
+    "F1 promedio (porcentaje)",
     color=RED_COLOR,
     labelpad=20
 )

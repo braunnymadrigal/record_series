@@ -1,3 +1,6 @@
+# PDF files
+*.[pP][dD][fF]
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
