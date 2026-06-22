@@ -1,7 +1,4 @@
 DATASET,CATEGORY
-jurídico,consultoría
-jurídico,gestión judicial
-jurídico,gestión notarial y registral
 museo,correspondencia
 museo,circulares
 museo,memorandos
@@ -18,6 +15,9 @@ museo,expedientes de transferencias de documentos
 museo,instrumentos técnicos archivísticos
 museo,expedientes sobre voluntariado
 museo,expedientes de tablas de plazos
+jurídico,consultoría
+jurídico,gestión judicial
+jurídico,gestión notarial y registral
 archivo,circulares
 archivo,informes técnicos
 archivo,correspondencia

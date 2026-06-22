@@ -1,5 +1,4 @@
 import time
-import pymupdf4llm
 import torch
 import pandas as pd
 import gc
@@ -14,7 +13,6 @@ from transformers import (
 # Constants
 DEVICE = "cuda"
 MAX_NEW_TOKENS = 64
-MAX_DOCUMENT_CHARS = 20000
 
 # DATAFRAMES
 LLMS_DF = pd.read_csv("llms.csv", encoding="utf-8")
@@ -157,15 +155,12 @@ def main():
             categories = categories["CATEGORY"].tolist()
 
             files = [
-                f for f in Path(f"datasets/{dataset}").iterdir()
+                f for f in Path(f"datasets_md/{dataset}").iterdir()
                 if f.is_file()
             ]
 
             for file_path in files:
-                raw_document = pymupdf4llm.to_markdown(str(file_path))
-
-                # Keep only the first 20000 characters of the generated Markdown
-                document = raw_document[:MAX_DOCUMENT_CHARS]
+                document = file_path.read_text(encoding="utf-8", errors="replace")
 
                 # Number of characters actually sent to the prompt
                 chars_processed = len(document)
@@ -177,11 +172,11 @@ def main():
                     current_prompt
                 )
                 
-                response = response.str.replace(" ", "")
-                response = response.str.replace("\n", "")
-                response = response.str.replace("\t", "")
-                response = response.str.replace("\r", "")
-                response = response.str.lower()
+                response = response.replace(" ", "")
+                response = response.replace("\n", "")
+                response = response.replace("\t", "")
+                response = response.replace("\r", "")
+                response = response.lower()
 
                 results_df.loc[len(results_df)] = [
                     dataset,
