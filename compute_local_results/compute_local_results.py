@@ -15,9 +15,9 @@ DEVICE = "cuda"
 MAX_NEW_TOKENS = 64
 
 # DATAFRAMES
-LLMS_DF = pd.read_csv("llms.csv", encoding="utf-8")
+LLMS_DF = pd.read_csv("local_llms.csv", encoding="utf-8")
 RECORDS_SERIES_DF = pd.read_csv("records_series.csv", encoding="utf-8")
-results_df = pd.read_csv("results.csv", encoding="utf-8")
+results_df = pd.read_csv("local_results.csv", encoding="utf-8")
 
 # Add column if old results.csv does not have it yet
 if "CHARS_PROCESSED" not in results_df.columns:
@@ -212,7 +212,7 @@ def main():
         torch.cuda.empty_cache()
         torch.cuda.ipc_collect()
 
-    results_df.to_csv("results.csv", index=False)
+    results_df.to_csv("local_results.csv", index=False)
 
 
 # Invoke
