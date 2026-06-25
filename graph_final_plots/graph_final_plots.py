@@ -9,13 +9,34 @@ from matplotlib.ticker import FuncFormatter
 RED_COLOR = "#de0606"
 BLUE_COLOR = "#007fd7"
 
+# ==========================
+# VISUAL SETTINGS
+# ==========================
+
+# Wider than tall
+FIGURE_SIZE = (30, 20)
+
+BASE_FONT_SIZE = 30
+AXIS_LABEL_FONT_SIZE = 36
+X_TICK_FONT_SIZE = 32
+Y_TICK_FONT_SIZE = 30
+LEGEND_FONT_SIZE = 34
+
 # Line/point style
-LINE_WIDTH = 3
-POINT_SIZE = 10
+LINE_WIDTH = 5
+POINT_SIZE = 18
+
+plt.rcParams.update({
+    "font.size": BASE_FONT_SIZE,
+    "axes.labelsize": AXIS_LABEL_FONT_SIZE,
+    "xtick.labelsize": X_TICK_FONT_SIZE,
+    "ytick.labelsize": Y_TICK_FONT_SIZE,
+    "legend.fontsize": LEGEND_FONT_SIZE,
+})
 
 # Legend
 extra_legend = [
-    Line2D([0], [0], color="none", label="■Local   ☁Cloud"),
+    Line2D([0], [0], color="none", label="■Local   ☁Nube"),
     Line2D([0], [0], color="none", label="¢Barato   $Caro"),
 ]
 
@@ -69,15 +90,7 @@ df_plot = df.sort_values(
 y = np.arange(len(df_plot))
 height = 0.38
 
-plt.figure(figsize=(16, 16))
-
-plt.rcParams.update({
-    "font.size": 16,
-    "axes.labelsize": 18,
-    "xtick.labelsize": 18,
-    "ytick.labelsize": 16,
-    "legend.fontsize": 20,
-})
+plt.figure(figsize=FIGURE_SIZE)
 
 plt.barh(
     y - height / 2,
@@ -119,7 +132,7 @@ plt.grid(
 
 ax.set_xlabel(
     "Porcentaje promedio",
-    labelpad=20
+    labelpad=35
 )
 
 handles, labels = plt.gca().get_legend_handles_labels()
@@ -130,7 +143,7 @@ plt.legend(
     loc="best"
 )
 
-plt.tight_layout()
+plt.tight_layout(pad=2.5)
 
 plt.savefig(
     "accuracy_vs_f1_horizontal.png",
@@ -155,15 +168,7 @@ df_plot = (
 
 y = np.arange(len(df_plot))
 
-plt.rcParams.update({
-    "font.size": 16,
-    "axes.labelsize": 18,
-    "xtick.labelsize": 18,
-    "ytick.labelsize": 16,
-    "legend.fontsize": 20,
-})
-
-fig, ax1 = plt.subplots(figsize=(16, 16))
+fig, ax1 = plt.subplots(figsize=FIGURE_SIZE)
 
 # --------------------------
 # F1 SCORE (BARS)
@@ -228,13 +233,13 @@ ax2.xaxis.set_major_formatter(
 ax1.set_xlabel(
     "F1 promedio (porcentaje)",
     color=RED_COLOR,
-    labelpad=20
+    labelpad=35
 )
 
 ax2.set_xlabel(
     "CER promedio (USD por unidad de F1)",
     color=BLUE_COLOR,
-    labelpad=20
+    labelpad=35
 )
 
 ax1.xaxis.label.set_color(RED_COLOR)
@@ -256,7 +261,7 @@ ax1.legend(
     loc="lower right"
 )
 
-plt.tight_layout()
+plt.tight_layout(pad=2.5)
 
 plt.savefig(
     "f1_vs_cer_horizontal.png",
@@ -278,15 +283,7 @@ df_plot = df.sort_values(
 
 y = np.arange(len(df_plot))
 
-plt.rcParams.update({
-    "font.size": 16,
-    "axes.labelsize": 18,
-    "xtick.labelsize": 18,
-    "ytick.labelsize": 16,
-    "legend.fontsize": 20,
-})
-
-fig, ax1 = plt.subplots(figsize=(16, 16))
+fig, ax1 = plt.subplots(figsize=FIGURE_SIZE)
 
 # --------------------------
 # F1 SCORE (BARS)
@@ -351,13 +348,13 @@ ax2.xaxis.set_major_formatter(
 ax1.set_xlabel(
     "F1 promedio (porcentaje)",
     color=RED_COLOR,
-    labelpad=20
+    labelpad=35
 )
 
 ax2.set_xlabel(
     "Costo promedio (USD)",
     color=BLUE_COLOR,
-    labelpad=20
+    labelpad=35
 )
 
 ax1.xaxis.label.set_color(RED_COLOR)
@@ -379,7 +376,7 @@ ax1.legend(
     loc="lower right"
 )
 
-plt.tight_layout()
+plt.tight_layout(pad=2.5)
 
 plt.savefig(
     "f1_vs_cost_horizontal.png",
