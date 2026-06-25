@@ -67,10 +67,12 @@ for dataset in datasets:
     dataset_df = dataset_df.sort_values("TIMES_USED", ascending=True)
 
     total_used = dataset_df["TIMES_USED"].sum()
+    total_series = len(dataset_df)
 
     dataset_headers.append({
         "dataset": DATASET_LABELS.get(dataset, dataset),
-        "total": total_used,
+        "documentos": total_used,
+        "series": total_series,
         "y": current_y + len(dataset_df)
     })
 
@@ -114,8 +116,10 @@ ax.tick_params(axis="y", labelsize=CATEGORY_FONT_SIZE, length=0)
 # Add actual values next to bars, but hide zeros
 for bar in bars:
     width = int(bar.get_width())
+
     if width > 0:
         y_position = bar.get_y() + bar.get_height() / 2
+
         ax.text(
             width + (x_limit * 0.01),
             y_position,
@@ -131,7 +135,7 @@ for header in dataset_headers:
     ax.text(
         0,
         header["y"],
-        f'{header["dataset"]} | Total: {header["total"]}',
+        f'{header["dataset"]} | Documentos: {header["documentos"]} | Series: {header["series"]}',
         fontsize=HEADER_FONT_SIZE,
         fontweight="bold",
         va="bottom"
@@ -153,7 +157,7 @@ ax.set_axisbelow(True)
 
 # Better margins for long labels and slide readability
 plt.subplots_adjust(
-    left=0.34,   # more room for long category names
+    left=0.34,
     right=0.97,
     top=0.98,
     bottom=0.08
