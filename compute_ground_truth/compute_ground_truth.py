@@ -36,6 +36,6 @@ for dataset in DATASETS:
 ground_truth_df = pd.DataFrame(rows, columns=["DATASET", "CATEGORY", "FILE"])
 
 # Save CSV
-ground_truth_df.to_csv("ground_truth.csv", index=False, encoding="utf-8")
+ground_truth_df.to_csv("ground_truth.csv", index=False, encoding="utf-8-sig")
 
 print(f"ground_truth.csv generated with {len(ground_truth_df)} rows.")

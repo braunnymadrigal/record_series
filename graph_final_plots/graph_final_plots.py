@@ -9,6 +9,10 @@ from matplotlib.ticker import FuncFormatter
 RED_COLOR = "#de0606"
 BLUE_COLOR = "#007fd7"
 
+# Line/point style
+LINE_WIDTH = 3
+POINT_SIZE = 10
+
 # Legend
 extra_legend = [
     Line2D([0], [0], color="none", label="■Local   ☁Cloud"),
@@ -19,7 +23,7 @@ extra_legend = [
 # LOAD DATA
 # ==========================
 
-df = pd.read_csv(f"metrics_for_plotting.csv")
+df = pd.read_csv("metrics.csv")
 
 # Poner F1 y Accuracy como porcentajes enteros
 def reformat(s):
@@ -27,16 +31,17 @@ def reformat(s):
     s = s * 100.0
     s = int(round(s))
     return s
-df['accuracy'] = df['accuracy'].apply(reformat)
-df['f1_score'] = df['f1_score'].apply(reformat)
+
+df["accuracy"] = df["accuracy"].apply(reformat)
+df["f1_score"] = df["f1_score"].apply(reformat)
 
 # Nombres más bonitos
-df["model"] = df["model"].str.replace(r"\\n", "\n", regex=True)
+df["model"] = df["model"].str.replace(r"\\t", " ", regex=True)
 
 # Agregar 'emojis' según el tipo al nombre
 type_icon = {
     "local": "■",
-    "cloud": "☁"
+    "api": "☁"
 }
 
 cheap_icon = {
@@ -75,7 +80,7 @@ plt.rcParams.update({
 })
 
 plt.barh(
-    y - height/2,
+    y - height / 2,
     df_plot["f1_score"],
     height,
     label="F1 promedio (porcentaje)",
@@ -83,7 +88,7 @@ plt.barh(
 )
 
 plt.barh(
-    y + height/2,
+    y + height / 2,
     df_plot["accuracy"],
     height,
     label="Accuracy promedio (porcentaje)",
@@ -96,8 +101,13 @@ plt.yticks(
 )
 
 plt.xlim(0, 100)
+
 ax = plt.gca()
-ax.xaxis.set_major_formatter(PercentFormatter(xmax=100))
+
+ax.xaxis.set_major_formatter(
+    PercentFormatter(xmax=100)
+)
+
 # Highest F1 on top
 ax.invert_yaxis()
 
@@ -123,136 +133,15 @@ plt.legend(
 plt.tight_layout()
 
 plt.savefig(
-    "../plots/accuracy_vs_f1_horizontal.png",
+    "accuracy_vs_f1_horizontal.png",
     dpi=600,
     bbox_inches="tight"
 )
 
 plt.close()
-
 
 # ==========================
 # GRAPH 2
-# F1 + AVG TIME (HORIZONTAL)
-# ==========================
-
-df_plot = df.sort_values(
-    by="f1_score",
-    ascending=False
-)
-
-y = np.arange(len(df_plot))
-
-plt.rcParams.update({
-    "font.size": 16,
-    "axes.labelsize": 18,
-    "xtick.labelsize": 18,
-    "ytick.labelsize": 16,
-    "legend.fontsize": 20,
-})
-
-fig, ax1 = plt.subplots(figsize=(16, 16))
-
-# --------------------------
-# F1 SCORE (BARS)
-# --------------------------
-
-bars = ax1.barh(
-    y,
-    df_plot["f1_score"],
-    height=0.6,
-    color=RED_COLOR,
-    alpha=0.85,
-    label="F1 promedio (porcentaje)"
-)
-
-ax1.set_xlim(0, 100)
-
-ax1.xaxis.set_major_formatter(
-    PercentFormatter(xmax=100)
-)
-
-ax1.grid(
-    axis="x",
-    linestyle="--",
-    alpha=0.4
-)
-
-# --------------------------
-# MODELS
-# --------------------------
-
-ax1.set_yticks(y)
-
-ax1.set_yticklabels(
-    df_plot["model"]
-)
-
-# Highest F1 on top
-ax1.invert_yaxis()
-
-# --------------------------
-# TIME (DOTS)
-# --------------------------
-
-ax2 = ax1.twiny()
-
-ax2.scatter(
-    df_plot["avg_time_seconds"],
-    y,
-    color=BLUE_COLOR,
-    s=150,  # dot size
-    label="Tiempo promedio (segundos)",
-    zorder=3
-)
-
-ax2.xaxis.set_major_formatter(
-    FuncFormatter(lambda x, pos: f"{x:.0f} s")
-)
-
-ax1.set_xlabel(
-    "F1 promedio (porcentaje)",
-    color=RED_COLOR,
-    labelpad=20
-)
-
-ax2.set_xlabel(
-    "Tiempo promedio (segundos)",
-    color=BLUE_COLOR,
-    labelpad=20
-)
-
-ax1.xaxis.label.set_color(RED_COLOR)
-ax1.tick_params(axis="x", colors=RED_COLOR)
-
-ax2.xaxis.label.set_color(BLUE_COLOR)
-ax2.tick_params(axis="x", colors=BLUE_COLOR)
-
-# --------------------------
-# LEGEND
-# --------------------------
-
-handles1, labels1 = ax1.get_legend_handles_labels()
-handles2, labels2 = ax2.get_legend_handles_labels()
-
-ax1.legend(
-    handles1 + handles2 + extra_legend,
-    labels1 + labels2 + [x.get_label() for x in extra_legend],
-    loc="lower right"
-)
-
-plt.tight_layout()
-
-plt.savefig(
-    "../plots/f1_vs_time_horizontal.png",
-    dpi=600,
-    bbox_inches="tight"
-)
-
-plt.close()
-
-# ==========================
-# GRAPH 3
 # F1 VS CER
 # ==========================
 
@@ -315,16 +204,19 @@ ax1.set_yticklabels(
 ax1.invert_yaxis()
 
 # --------------------------
-# CER (DOTS)
+# CER (POINTS WITH LINE)
 # --------------------------
 
 ax2 = ax1.twiny()
 
-ax2.scatter(
+ax2.plot(
     df_plot["CER"],
     y,
     color=BLUE_COLOR,
-    s=150,  # dot size
+    marker="o",
+    linestyle="-",
+    linewidth=LINE_WIDTH,
+    markersize=POINT_SIZE,
     label="CER promedio (USD por unidad de F1)",
     zorder=3
 )
@@ -367,7 +259,7 @@ ax1.legend(
 plt.tight_layout()
 
 plt.savefig(
-    "../plots/f1_vs_cer_horizontal.png",
+    "f1_vs_cer_horizontal.png",
     dpi=600,
     bbox_inches="tight"
 )
@@ -435,16 +327,19 @@ ax1.set_yticklabels(
 ax1.invert_yaxis()
 
 # --------------------------
-# CER (DOTS)
+# AVG COST (POINTS WITH LINE)
 # --------------------------
 
 ax2 = ax1.twiny()
 
-ax2.scatter(
+ax2.plot(
     df_plot["avg_cost"],
     y,
     color=BLUE_COLOR,
-    s=150,  # dot size
+    marker="o",
+    linestyle="-",
+    linewidth=LINE_WIDTH,
+    markersize=POINT_SIZE,
     label="Costo promedio (USD)",
     zorder=3
 )
@@ -487,7 +382,7 @@ ax1.legend(
 plt.tight_layout()
 
 plt.savefig(
-    "../plots/f1_vs_cost_horizontal.png",
+    "f1_vs_cost_horizontal.png",
     dpi=600,
     bbox_inches="tight"
 )
